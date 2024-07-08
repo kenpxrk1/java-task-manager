@@ -6,12 +6,12 @@ import java.util.Objects;
 public class EpicTask extends Task {
     private ArrayList<Integer> subTaskId = new ArrayList<>();
 
-    public EpicTask(String title, String description, String status, int id, ArrayList<Integer> subTaskId) {
+    public EpicTask(String title, String description, TaskStatus status, int id, ArrayList<Integer> subTaskId) {
         super(title, description, status, id);
         this.subTaskId = subTaskId;
     }
 
-    public EpicTask(String description, String title, String status) {
+    public EpicTask(String description, String title, TaskStatus status) {
         super(description, title, status);
     }
 

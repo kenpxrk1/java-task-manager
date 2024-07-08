@@ -5,18 +5,18 @@ import java.util.Objects;
 public class Task {
     protected String title;
     protected String description;
-    protected String status;
+    protected TaskStatus status;
     protected int id;
 
 
-    public Task(String title, String description, String status, int id) {
+    public Task(String title, String description, TaskStatus status, int id) {
         this.title = title;
         this.description = description;
         this.status = status;
         this.id = id;
     }
 
-    public Task(String description, String title, String status) {
+    public Task(String description, String title, TaskStatus status) {
         this.description = description;
         this.title = title;
         this.status = status;
@@ -46,11 +46,11 @@ public class Task {
         this.description = description;
     }
 
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 
