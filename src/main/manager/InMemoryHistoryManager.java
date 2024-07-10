@@ -7,19 +7,21 @@ import java.util.List;
 
 public class InMemoryHistoryManager implements IHistoryManager{
 
-    private final List<Task> tasksCheckHistory = new ArrayList<>();
-    static final int HISTORY_SIZE = 10;
+    private final CustomLinkedList tasksCheckHistory = new CustomLinkedList();
 
     @Override
     public List<Task> getHistory() {
-        return tasksCheckHistory;
+        return tasksCheckHistory.getTasks();
     }
 
     @Override
-    public void UpdateTaskHistory(Task task) {
-        if (tasksCheckHistory.size() >= HISTORY_SIZE){
-            tasksCheckHistory.remove(0);
-        }
-        tasksCheckHistory.add(task);
+    public void remove(int id) {
+        return;
     }
-}
+
+    @Override
+    public void add(Task task) {
+            tasksCheckHistory.getNodeMap().remove(task.getId());
+            tasksCheckHistory.linkLast(task);
+        }
+    }

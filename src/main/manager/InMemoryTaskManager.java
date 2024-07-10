@@ -62,7 +62,7 @@ public class InMemoryTaskManager implements ITaskManager {
         if (task == null){
             return null;
         }
-        historyManager.UpdateTaskHistory(task);
+        historyManager.add(task);
         return task;
 
     }
@@ -76,7 +76,7 @@ public class InMemoryTaskManager implements ITaskManager {
         if (subTask == null){
             return null;
         }
-        historyManager.UpdateTaskHistory(subTask);
+        historyManager.add(subTask);
         return subTask;
     }
 
@@ -89,7 +89,7 @@ public class InMemoryTaskManager implements ITaskManager {
         if (epicTask == null){
             return null;
         }
-        historyManager.UpdateTaskHistory(epicTask);
+        historyManager.add(epicTask);
         return epicTask;
     }
 
