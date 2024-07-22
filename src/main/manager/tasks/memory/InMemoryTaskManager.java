@@ -1,5 +1,8 @@
-package main.manager;
+package main.manager.tasks.memory;
 
+import main.manager.Managers;
+import main.manager.history.IHistoryManager;
+import main.manager.tasks.ITaskManager;
 import main.tasks.EpicTask;
 import main.tasks.SubTask;
 import main.tasks.Task;
@@ -10,11 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InMemoryTaskManager implements ITaskManager {
-    HashMap<Integer, Task> tasks = new HashMap<>();
-    HashMap<Integer, SubTask> subTasks = new HashMap<>();
-    HashMap<Integer, EpicTask> epicTasks = new HashMap<>();
+    protected static final HashMap<Integer, Task> tasks = new HashMap<>();
+    protected static final HashMap<Integer, SubTask> subTasks = new HashMap<>();
+    protected static final HashMap<Integer, EpicTask> epicTasks = new HashMap<>();
 
-    private final IHistoryManager historyManager = Managers.getDefaultHistoryManager();
+    protected static final IHistoryManager historyManager = Managers.getDefaultHistoryManager();
 
     private int idCounter = 0;
 
@@ -55,11 +58,11 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public Task getTask(int id) {
-        if (!tasks.containsKey(id)){
+        if (!tasks.containsKey(id)) {
             return null;
         }
         Task task = tasks.get(id);
-        if (task == null){
+        if (task == null) {
             return null;
         }
         historyManager.add(task);
@@ -69,11 +72,11 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public SubTask getSubTask(int id) {
-        if (!subTasks.containsKey(id)){
+        if (!subTasks.containsKey(id)) {
             return null;
         }
         SubTask subTask = subTasks.get(id);
-        if (subTask == null){
+        if (subTask == null) {
             return null;
         }
         historyManager.add(subTask);
@@ -82,11 +85,11 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public EpicTask getEpicTask(int id) {
-        if (!epicTasks.containsKey(id)){
+        if (!epicTasks.containsKey(id)) {
             return null;
         }
         EpicTask epicTask = epicTasks.get(id);
-        if (epicTask == null){
+        if (epicTask == null) {
             return null;
         }
         historyManager.add(epicTask);
@@ -98,6 +101,7 @@ public class InMemoryTaskManager implements ITaskManager {
         int id = ++this.idCounter;
         task.setId(id);
         tasks.put(id, task);
+
         return task;
     }
 

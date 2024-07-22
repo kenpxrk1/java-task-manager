@@ -1,4 +1,4 @@
-package main.manager;
+package main.manager.history;
 
 import main.tasks.Task;
 
@@ -44,9 +44,13 @@ public class CustomLinkedList {
 
     public List<Task> getTasks() {
         List<Task> taskList = new ArrayList<>();
-        Node<Task> currNode = head;
-        while (currNode.next != null) {
+        if (head == null){
+            return null;
+        }
+        Node<Task> currNode = tail;
+        while (currNode != null) {
             taskList.add(currNode.task);
+            currNode = currNode.prev;
         }
         return taskList;
     }
@@ -78,6 +82,4 @@ public class CustomLinkedList {
         removeNode(nodeMap.get(key));
         nodeMap.remove(key);
     }
-
-
 }

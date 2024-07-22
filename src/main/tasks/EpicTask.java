@@ -5,10 +5,26 @@ import java.util.Objects;
 
 public class EpicTask extends Task {
     private ArrayList<Integer> subTaskId = new ArrayList<>();
+    private static final TaskType taskType = TaskType.EPIC;
 
     public EpicTask(String title, String description, TaskStatus status, int id, ArrayList<Integer> subTaskId) {
         super(title, description, status, id);
         this.subTaskId = subTaskId;
+    }
+
+    @Override
+    public String getStringTaskType() {
+        return taskType.toString();
+    }
+
+    @Override
+    public TaskType getTaskType() {
+        return taskType;
+    }
+
+    public EpicTask(String title, String description, TaskStatus status, int id){
+        super(title, description, status, id);
+
     }
 
     public EpicTask(String description, String title, TaskStatus status) {

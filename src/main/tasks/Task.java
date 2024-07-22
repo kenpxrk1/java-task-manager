@@ -6,6 +6,7 @@ public class Task {
     protected String title;
     protected String description;
     protected TaskStatus status;
+    private static final TaskType taskType = TaskType.TASK;
     protected int id;
 
 
@@ -20,6 +21,14 @@ public class Task {
         this.description = description;
         this.title = title;
         this.status = status;
+    }
+
+    public String getStringTaskType() {
+        return taskType.toString();
+    }
+
+    public TaskType getTaskType(){
+        return taskType;
     }
 
     public int getId() {
@@ -69,5 +78,14 @@ public class Task {
     }
 
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", id=" + id +
+                '}';
+    }
 }
 

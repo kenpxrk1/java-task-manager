@@ -1,5 +1,5 @@
 package main;
-import main.manager.InMemoryTaskManager;
+import main.manager.tasks.memory.InMemoryTaskManager;
 import main.tasks.EpicTask;
 import main.tasks.SubTask;
 import main.tasks.Task;
